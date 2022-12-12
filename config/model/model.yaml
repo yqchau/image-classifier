@@ -1,0 +1,5 @@
+model_name:
+pretrained:
+checkpoint_path:
+in_chans:
+drop_rate:

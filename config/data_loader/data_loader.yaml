@@ -1,0 +1,8 @@
+dataset_path:
+num_classes:
+num_workers:
+batch_size:
+
+# data pre-processing
+train_transform:
+val_transform:

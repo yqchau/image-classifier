@@ -1,0 +1,12 @@
+*.pcd
+*.pyc
+
+# VS Code
+**/.vscode
+*.code-workspace
+
+# OS
+.DS_Store
+
+# hydra
+/outputs

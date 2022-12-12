@@ -1,0 +1,8 @@
+# optimizer
+option:
+learning_rate:
+weight_decay:
+momentum:
+
+# training loop
+max_num_epochs:
