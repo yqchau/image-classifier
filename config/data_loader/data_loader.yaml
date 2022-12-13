@@ -1,8 +1,35 @@
-dataset_path:
-num_classes:
-num_workers:
-batch_size:
+train_dataset_path: /Users/yuanqichau/test_data
+val_dataset_path: /Users/yuanqichau/test_data
+num_workers: 4
+batch_size: 16
 
-# data pre-processing
+# data transformation
+image_size: # final image size
+  - 64
+  - 64
+norm_mean: # normalization mean
+  - 0
+  - 0
+  - 0
+norm_std: # normalization standard deviation
+  - 1
+  - 1
+  - 1
 train_transform:
+  _target_: torchvision.transforms.Compose
+  transforms:
+    - _target_: torchvision.transforms.Resize
+      size: ${data_loader.image_size}
+    - _target_: torchvision.transforms.ToTensor
+    - _target_: torchvision.transforms.Normalize
+      mean: ${data_loader.norm_mean}
+      std: ${data_loader.norm_std}
 val_transform:
+  _target_: torchvision.transforms.Compose
+  transforms:
+    - _target_: torchvision.transforms.Resize
+      size: ${data_loader.image_size}
+    - _target_: torchvision.transforms.ToTensor
+    - _target_: torchvision.transforms.Normalize
+      mean: ${data_loader.norm_mean}
+      std: ${data_loader.norm_std}

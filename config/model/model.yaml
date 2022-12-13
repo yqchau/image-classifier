@@ -1,5 +1,14 @@
-model_name:
-pretrained:
-checkpoint_path:
-in_chans:
-drop_rate:
+# timm model
+model:
+  model_name: regnety_002
+  pretrained: false
+  checkpoint_path: null
+  drop_rate: 0.1
+  num_classes: 5
+
+# optimizer
+optimizer:
+  opt: Adam
+  lr: 1e-3
+  weight_decay: 0
+  momentum: 0

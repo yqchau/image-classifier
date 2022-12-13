@@ -10,3 +10,6 @@
 
 # hydra
 /outputs
+
+# pl
+/lightning_logs
