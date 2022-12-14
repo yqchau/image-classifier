@@ -1,0 +1,6 @@
+defaults:
+  - dataset: dataset
+  - pytorch-lightning: pytorch-lightning
+  - train: train
+  - test: test
+  - _self_

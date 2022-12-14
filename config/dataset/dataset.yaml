@@ -1,0 +1,36 @@
+# data transformation
+image_size: # final image size
+  - 64
+  - 64
+norm_mean: # normalization mean
+  - 0
+  - 0
+  - 0
+norm_std: # normalization standard deviation
+  - 1
+  - 1
+  - 1
+
+data_loader:
+  train_dataset_path: /Users/yuanqichau/Rice_Image_Dataset/train
+  val_dataset_path: /Users/yuanqichau/Rice_Image_Dataset/val
+  num_workers: 4
+  batch_size: 64
+  train_transform:
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _target_: torchvision.transforms.Resize
+        size: ${dataset.image_size}
+      - _target_: torchvision.transforms.ToTensor
+      - _target_: torchvision.transforms.Normalize
+        mean: ${dataset.norm_mean}
+        std: ${dataset.norm_std}
+  val_transform:
+    _target_: torchvision.transforms.Compose
+    transforms:
+      - _target_: torchvision.transforms.Resize
+        size: ${dataset.image_size}
+      - _target_: torchvision.transforms.ToTensor
+      - _target_: torchvision.transforms.Normalize
+        mean: ${dataset.norm_mean}
+        std: ${dataset.norm_std}

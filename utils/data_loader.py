@@ -10,8 +10,6 @@ def get_data_loaders(
     val_transform,
     batch_size,
     num_workers,
-    *args,
-    **kwargs
 ):
 
     train_transform = hydra.utils.instantiate(train_transform)

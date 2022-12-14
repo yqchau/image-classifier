@@ -9,11 +9,15 @@ from utils.model import PLModel
 
 @hydra.main(version_base=None, config_path="./config", config_name="config")
 def train(cfg: DictConfig):
-    torch.manual_seed(cfg["train"]["seed"])
+    torch.manual_seed(cfg["training"]["seed"])
 
-    train_data_loader, val_data_loader = get_data_loaders(**cfg["data_loader"])
-    model = PLModel(**cfg["model"])
-    trainer = pl.Trainer(**cfg["train"]["trainer"])
+    train_data_loader, val_data_loader = get_data_loaders(
+        **cfg["dataset"]["data_loader"]
+    )
+    model = PLModel(
+        cfg["pytorch-lightning"]["model"], cfg["pytorch-lightning"]["optimizer"]
+    )
+    trainer = pl.Trainer(**cfg["training"]["trainer"])
 
     trainer.fit(
         model=model,

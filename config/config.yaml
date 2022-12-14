@@ -1,6 +1,0 @@
-defaults:
-  - data_loader: data_loader
-  - model: model
-  - train: train
-  - test: test
-  - _self_
